@@ -9,12 +9,14 @@ const User = require("../../models/User");
 router.get("/test", (req, res) => res.json({ msg: "Profiles working" }));
 
 //get current users profile
+//not working in postman - check S4/L18
 router.get(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const errors = {};
-    Profile.findOne({ user: request.user.id })
+
+    Profile.findOne({ user: req.user.id })
       .then(profile => {
         if (!profile) {
           errors.noprofile = "There is no profile for this user";
