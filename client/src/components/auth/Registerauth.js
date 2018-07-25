@@ -44,8 +44,6 @@ class Registerauth extends Component {
   render() {
     const { errors } = this.state;
 
-    const user = this.props.auth.user;
-
     return (
       <div className="register">
         <div className="container">
