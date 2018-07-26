@@ -13,6 +13,12 @@ class Loginauth extends Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   componentDidUpdate() {
     const { isAuthenticated } = this.props.auth;
     if (isAuthenticated) {
