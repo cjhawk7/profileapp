@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { clearCurrentProfile } from "./actions/userActions";
 import { Provider } from "react-redux";
 import store from "./store";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
@@ -39,7 +40,9 @@ class App extends Component {
             <div className="container">
               <Route exact path="/register" component={Registerauth} />
               <Route exact path="/login" component={Loginauth} />
-              <Route exact path="/dashboard" component={Dashboard} />
+              <Switch>
+                <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
             </div>
             <Footer />
           </div>
