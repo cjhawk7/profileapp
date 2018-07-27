@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
+import Fields from "../common/Fields";
 
 class Registerauth extends Component {
   constructor() {
@@ -60,23 +61,14 @@ class Registerauth extends Component {
                 Create your Languageconnect account
               </p>
               <form onSubmit={this.onSubmit.bind(this)}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className={
-                      errors.name
-                        ? "form-control form-control-lg is-invalid"
-                        : "form-control form-control-lg"
-                    }
-                    placeholder="Name"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.onChange.bind(this)}
-                  />
-                  {errors.name && (
-                    <div className="invalid-feedback">{errors.name}</div>
-                  )}
-                </div>
+                <Fields
+                  placeholder="name"
+                  name="name"
+                  type="email"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                  error={errors.name}
+                />
                 <div className="form-group">
                   <input
                     type="email"
