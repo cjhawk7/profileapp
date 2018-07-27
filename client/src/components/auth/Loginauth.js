@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
+import { Redirect } from "react-router-dom";
 
 class Loginauth extends Component {
   constructor() {
@@ -11,12 +12,6 @@ class Loginauth extends Component {
       password: "",
       errors: {}
     };
-  }
-
-  componentDidMount() {
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
   }
 
   componentDidUpdate() {
@@ -44,6 +39,10 @@ class Loginauth extends Component {
   };
 
   render() {
+    if (this.props.auth.isAuthenticated) {
+      return <Redirect to="/dashboard" />;
+    }
+
     const { errors } = this.state;
 
     return (
