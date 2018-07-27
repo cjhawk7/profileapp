@@ -1,11 +1,6 @@
 import axios from "axios";
 
-import {
-  GET_PROFILE,
-  PROFILE_LOADING,
-  CLEAR_CURRENT_PROFILE,
-  GET_ERRORS
-} from "./types";
+import { GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE } from "./types";
 
 // Get current profile
 export const getCurrentProfile = () => dispatch => {
@@ -33,7 +28,6 @@ export const createProfile = (profileData, history) => dispatch => {
     .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
-        type: GET_ERRORS,
         payload: err.response.data
       })
     );
