@@ -85,6 +85,11 @@ class NewProf extends Component {
                 error={errors.bio}
                 info="Tell us a little about yourself"
               />
+              <input
+                type="submit"
+                value="Submit"
+                className="btn btn-info btn-block mt-4"
+              />
             </form>
           </div>
         </div>
