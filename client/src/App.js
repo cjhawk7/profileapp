@@ -15,6 +15,7 @@ import Landing from "./components/layout/Landing";
 import Registerauth from "./components/auth/Registerauth";
 import Loginauth from "./components/auth/Loginauth";
 import Dashboard from "./components/dashboard/Dashboard";
+import NewProf from "./components/create-profile/NewProf";
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -42,6 +43,11 @@ class App extends Component {
               <Route exact path="/login" component={Loginauth} />
               <Switch>
                 <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+                <ProtectedRoute
+                  exact
+                  path="/create-profile"
+                  component={NewProf}
+                />
               </Switch>
             </div>
             <Footer />
