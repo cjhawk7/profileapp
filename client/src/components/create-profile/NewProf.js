@@ -26,8 +26,23 @@ class NewProf extends Component {
     console.log("submit");
   };
 
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
   render() {
     const { errors } = this.state;
+
+    const options = [
+      { label: "* Select Professional Status", value: 0 },
+      { label: "Manager", value: "Manager" },
+      { label: "Student or Learning", value: "Student or Learning" },
+      { label: "Instructor or Teacher", value: "Instructor or Teacher" },
+      { label: "Intern", value: "Intern" },
+      { label: "Other", value: "Other" }
+    ];
     return (
       <div className="create-profile">
         <div className="container">
@@ -44,6 +59,31 @@ class NewProf extends Component {
                 onChange={this.onChange}
                 error={errors.handle}
                 info="Your handle"
+              />
+              <SelectList
+                placeholder="Status"
+                name="status"
+                value={this.state.status}
+                onChange={this.onChange}
+                options={options}
+                error={errors.status}
+                info="What do you do?"
+              />
+              <FieldsArea
+                placeholder="Location"
+                name="location"
+                value={this.state.location}
+                onChange={this.onChange}
+                error={errors.location}
+                info="City and location"
+              />
+              <FieldsArea
+                placeholder="Short Bio"
+                name="bio"
+                value={this.state.bio}
+                onChange={this.onChange}
+                error={errors.bio}
+                info="Tell us a little about yourself"
               />
             </form>
           </div>
