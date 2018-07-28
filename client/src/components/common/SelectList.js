@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const SelectList = ({ name, error, info, onChange, options }) => {
+const SelectList = ({ name, error, info, onChange, value, options }) => {
   const selectOptions = options.map(option => (
     <option key={option.label} value={option.value}>
       {option.label}
@@ -35,7 +35,7 @@ SelectList.propTypes = {
   options: PropTypes.array.isRequired
 };
 
-Fields.defaultProps = {
+SelectList.defaultProps = {
   type: "text"
 };
 

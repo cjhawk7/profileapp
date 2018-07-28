@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const FieldsArea = ({ name, placeholder, error, info, onChange }) => {
+const FieldsArea = ({ name, placeholder, error, value, info, onChange }) => {
   return (
     <div className="form-group">
       <textarea
@@ -29,7 +29,7 @@ FieldsArea.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-Fields.defaultProps = {
+FieldsArea.defaultProps = {
   type: "text"
 };
 
