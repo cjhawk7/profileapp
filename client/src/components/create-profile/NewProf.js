@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import Fields from "../common/Fields";
 import FieldsArea from "../common/FieldsArea";
 import SelectList from "../common/SelectList";
 import InputGroup from "../common/InputGroup";
+import { createProfile } from "../../actions/userActions";
 
 class NewProf extends Component {
   constructor(props) {
@@ -21,9 +23,21 @@ class NewProf extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
+    const profileData = {
+      handle: this.state.handle,
+      location: this.state.location,
+      status: this.state.status,
+      bio: this.state.bio
+    };
+    this.props.createProfile(profileData, this.props.history);
   };
 
   onChange = e => {
@@ -108,4 +122,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps)(NewProf);
+export default connect(
+  mapStateToProps,
+  { createProfile }
+)(withRouter(NewProf));

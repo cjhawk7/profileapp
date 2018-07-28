@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getCurrentProfile } from "../../actions/userActions";
 import Loader from "../common/Loader";
 import { Link } from "react-router-dom";
+import ProfileActions from "./ProfileActions";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -20,7 +21,14 @@ class Dashboard extends Component {
       profileContent = <Loader />;
     } else {
       if (Object.keys(profile).length > 0) {
-        profileContent = <h4>TODO: DISPLAY PROFILE</h4>;
+        profileContent = (
+          <div>
+            <p className="lead text-muted">
+              Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+            </p>
+            <ProfileActions />
+          </div>
+        );
       } else {
         profileContent = (
           <div>
