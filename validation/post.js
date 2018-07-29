@@ -6,8 +6,8 @@ module.exports = function validatePostInput(data) {
 
   data.text = !isEmpty(data.text) ? data.text : "";
 
-  if (!Validator.isEmail(data.email)) {
-    errors.email = "Text field is required";
+  if (Validator.isEmpty(data.text)) {
+    errors.text = "Text field is required";
   }
 
   return {

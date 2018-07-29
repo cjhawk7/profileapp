@@ -29,22 +29,23 @@ class NewProf extends Component {
     }
   }
 
-  onSubmit = e => {
+  onSubmit(e) {
     e.preventDefault();
+
     const profileData = {
       handle: this.state.handle,
       location: this.state.location,
       status: this.state.status,
-      bio: this.state.bio
+      bio: this.state.bio,
+      skills: this.state.bio
     };
-    this.props.createProfile(profileData, this.props.history);
-  };
 
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
+    this.props.createProfile(profileData, this.props.history);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
   render() {
     const { errors } = this.state;
@@ -98,6 +99,14 @@ class NewProf extends Component {
                 onChange={this.onChange}
                 error={errors.bio}
                 info="Tell us a little about yourself"
+              />
+              <FieldsArea
+                placeholder="Skills"
+                name="skills"
+                value={this.state.skills}
+                onChange={this.onChange}
+                error={errors.skills}
+                info="What skills you got?"
               />
               <input
                 type="submit"
