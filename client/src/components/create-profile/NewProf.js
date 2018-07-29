@@ -52,9 +52,8 @@ class NewProf extends Component {
 
     const options = [
       { label: "* Select Professional Status", value: 0 },
-      { label: "Manager", value: "Manager" },
+      { label: "Working Professional", value: "Working Professional" },
       { label: "Student or Learning", value: "Student or Learning" },
-      { label: "Instructor or Teacher", value: "Instructor or Teacher" },
       { label: "Intern", value: "Intern" },
       { label: "Other", value: "Other" }
     ];

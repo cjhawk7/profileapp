@@ -50,7 +50,7 @@ class NewProf extends Component {
         location,
         bio,
         handle,
-        skills,
+        skills: skillsCSV,
         status
       });
     }
