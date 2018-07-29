@@ -38,20 +38,18 @@ class NewProf extends Component {
 
       const skillsCSV = profile.skills.join(",");
 
-      profile.location = !isEmpty(profile.location) ? profile.location : '';
-      profile.skills = !isEmpty(profile.skills) ? profile.skills : '';
-      profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
-      profile.status = !isEmpty(profile.status) ? profile.status : '';
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
+      profile.skills = !isEmpty(profile.skills) ? profile.skills : "";
+      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+      profile.status = !isEmpty(profile.status) ? profile.status : "";
 
       this.setState({
         handle: profile.handle,
         location: profile.location,
         status: profile.status,
         skills: skillsCSV,
-        bio: profile.bio,
+        bio: profile.bio
       });
-    }
-
     }
   }
 
