@@ -3,21 +3,24 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Loader from "../common/Loader";
 import { getProfiles } from "../../actions/userActions";
+import ProfileItem from "./ProfileItem";
 
 class Profiles extends Component {
   componentDidMount() {
     this.props.getProfiles();
   }
+
   render() {
     const { profiles, loading } = this.props.profile;
-    console.log(this.props.profile);
     let profileItems;
 
     if (profiles === null || loading) {
       profileItems = <Loader />;
     } else {
       if (profiles.length > 0) {
-        profileItems = <h1>PROFILES</h1>;
+        profileItems = profiles.map(profile => (
+          <ProfileItem key={profile._id} profile={profile} />
+        ));
       } else {
         profileItems = <h4>No profiles found...</h4>;
       }
@@ -29,7 +32,7 @@ class Profiles extends Component {
           <div className="row">
             <div className="col-md-12">
               <h1 className="display-4 text-center">Profiles</h1>
-              <p className="lead text-center">Connect with others near you</p>
+              <p className="lead text-center">Connect with others</p>
               {profileItems}
             </div>
           </div>
