@@ -18,6 +18,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import NewProf from "./components/create-profile/NewProf";
 import EditProf from "./components/edit-profile/EditProf";
 import Profiles from "./components/profileList/Profiles";
+import Profile from "./components/profile/Profile";
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -44,6 +45,7 @@ class App extends Component {
               <Route exact path="/register" component={Registerauth} />
               <Route exact path="/login" component={Loginauth} />
               <Route exact path="/profiles" component={Profiles} />
+              <Route exact path="/profile/:handle" component={Profile} />
               <Switch>
                 <ProtectedRoute exact path="/dashboard" component={Dashboard} />
                 <ProtectedRoute
