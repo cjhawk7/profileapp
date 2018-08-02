@@ -4,7 +4,7 @@ class ProfileFact extends Component {
   render() {
     return (
       <div>
-        <h1>PROFILE Credential</h1>
+        <h1>PROFILE Facts</h1>
       </div>
     );
   }
