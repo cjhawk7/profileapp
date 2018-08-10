@@ -18,6 +18,7 @@ class Dashboard extends Component {
   render() {
     const { user } = this.props.auth;
     const { profile, loading } = this.props.profile;
+    console.log(this.props.profile);
 
     let profileContent;
 
@@ -70,7 +71,7 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  deleteAccount: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
 };
 

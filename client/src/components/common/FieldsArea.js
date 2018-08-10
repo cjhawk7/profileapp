@@ -23,7 +23,7 @@ const FieldsArea = ({ name, placeholder, error, value, info, onChange }) => {
 FieldsArea.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   info: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired

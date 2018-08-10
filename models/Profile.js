@@ -11,17 +11,6 @@ const ProfileSchema = new Schema({
   status: { type: String, required: true },
   bio: { type: String },
   skills: { type: String }
-  // education: [
-  //   {
-  //     school: { type: String },
-  //     degree: { type: String },
-  //     fieldofstudy: { type: String },
-  //     from: { type: Date },
-  //     to: { type: Date },
-  //     current: { type: Boolean, default: false },
-  //     description: { type: String }
-  //   }
-  // ]
 });
 
 module.exports = Profile = mongoose.model("profile", ProfileSchema);
